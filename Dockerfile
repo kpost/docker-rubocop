@@ -1,13 +1,10 @@
-FROM ruby:2.3
-MAINTAINER "Dave Long <dlong@cagedata.com>"
+FROM ruby:2.7
+LABEL maintainer="Kobus Post"
 
-ARG version=0.43.0
-
-RUN gem install rubocop -v ${version}
+RUN gem install rubocop
 
 WORKDIR /app
 VOLUME /app
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
-
